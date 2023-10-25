@@ -16,9 +16,14 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  let pathName = path.split("/");
+  return pathName[pathName.length - 1];
 }
+
+// console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"));
+// console.log(dosyaAdiniBul("Beethoven_5.mp3"));
+// console.log(dosyaAdiniBul(""));
 
 /*
   GÖREV 2
@@ -38,8 +43,17 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(arr) {
+  let total = 0;
+  if (arr.length === 0) {
+    return null;
+  } else {
+    total = arr.reduce((acc, num) => {
+      return acc + num;
+    }, 0);
+  }
+
+  return total / arr.length;
 }
 
 /*
@@ -62,8 +76,17 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(arr, ortalamaBul) {
+  const avg = ortalamaBul(arr);
+  let result = [];
+  if (avg === null) {
+    return null;
+  } else {
+    result = arr.filter((item) => {
+      return item >= avg;
+    });
+  }
+  return result;
 }
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
